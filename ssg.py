@@ -8,7 +8,7 @@ def main():
     }
 
     Site(**config).build()
-    typer.run()
+    
     
 if __name__ == "__main__":
-    main()
+    typer.run(main)
