@@ -1,9 +1,14 @@
-# import typer
+import typer
 from ssg.site import Site
 
-config = {
-    "source" : "source", 
-    "dest": "dest",
-}
+def main():
+    config = {
+        "source" : "source", 
+        "dest": "dest",
+    }
 
-Site(**config).build()
+    Site(**config).build()
+    typer.run()
+    
+if __name__ == "__main__":
+    main()
