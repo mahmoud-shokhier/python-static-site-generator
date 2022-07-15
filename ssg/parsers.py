@@ -1,23 +1,20 @@
-from typing import List
+from typing import List # type hints
 from pathlib import Path
 import shutil
 
 
 class Parser:
-    extensions = List[str]
+    extensions : List[str] = [] 
     
     def valid_extension(self, extension):
-        if extension in self.extensions:
-            return True
-        else:
-            return False
+        return extension in self.extensions
     
-    def parse(self, path, source, dest):
+    def parse(self, path: Path, source:Path, dest: Path):
         raise NotImplementedError
 
     def read(self, path):
         with open(path, 'r') as file:
-            return file.readlines()
+            return file.read()
     
     def write(self, path, dest, content, ext='.html'):
         full_path = dest / path.with_suffix(ext).name
